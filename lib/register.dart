@@ -36,7 +36,7 @@ class _registerState extends State<register> {
     Navigator.pushNamed(context, 'home');
   } else {
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(data['register'])), 
+      SnackBar(content: Text(data['message'])), 
     );
   }
 }
