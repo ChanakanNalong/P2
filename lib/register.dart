@@ -22,7 +22,7 @@ class _registerState extends State<register> {
   TextEditingController pass = TextEditingController();
   TextEditingController email = TextEditingController();
 
-   Future sign_up() async {
+    Future sign_up() async {
   String url = "http://172.16.10.226/api/flutter_login/register.php";
   final response = await http.post(Uri.parse(url), body: {
     'name': name.text,
@@ -36,7 +36,7 @@ class _registerState extends State<register> {
     Navigator.pushNamed(context, 'home');
   } else {
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(data['message'])), 
+      SnackBar(content: Text(data['register'])), 
     );
   }
 }
