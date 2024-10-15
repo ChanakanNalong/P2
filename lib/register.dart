@@ -183,7 +183,7 @@ class _registerState extends State<register> {
             ],
           ),
         ),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ), 
     );
   }
 }
