@@ -22,20 +22,24 @@ class _registerState extends State<register> {
   TextEditingController pass = TextEditingController();
   TextEditingController email = TextEditingController();
 
-  Future sign_up() async {
-    String url = "http://172.16.10.226/api/flutter_login/register.php";
-    final response = await http.post(Uri.parse(url), body: {
-      'name' : name.text,
-      'password' : pass.text,
-      'email' : email.text,
-    });
-    var data = json.decode(response.body);
-    if(data == "Error"){
-      Navigator.pushNamed(context, 'home');
-    }else{
-      Navigator.pushNamed(context, 'register');
-    }
+   Future sign_up() async {
+  String url = "http://172.16.10.226/api/flutter_login/register.php";
+  final response = await http.post(Uri.parse(url), body: {
+    'name': name.text,
+    'password': pass.text,
+    'email': email.text,
+  });
+
+  var data = json.decode(response.body);
+
+  if (data['status'] == "success") {
+    Navigator.pushNamed(context, 'home');
+  } else {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(data['message'])), 
+    );
   }
+}
 
   Widget build(BuildContext context) {
     return Scaffold(
