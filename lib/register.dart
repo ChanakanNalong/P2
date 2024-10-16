@@ -21,7 +21,6 @@ class _registerState extends State<register> {
   TextEditingController pass = TextEditingController();
   TextEditingController email = TextEditingController();
 
-<<<<<<< HEAD
   Future<void> sign_up() async {
   String url = "http://127.0.0.1/api/flutter_login/register.php";
   
@@ -31,26 +30,6 @@ class _registerState extends State<register> {
     'password': pass.text, // Use password controller
     'email': email.text,
   };
-=======
-    Future sign_up() async {
-  String url = "http://172.16.10.226/api/flutter_login/register.php";
-  final response = await http.post(Uri.parse(url), body: {
-    'name': name.text,
-    'password': pass.text,
-    'email': email.text,
-  });
-
-  var data = json.decode(response.body);
-
-  if (data['status'] == "success") {
-    Navigator.pushNamed(context, 'home');
-  } else {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(data['message'])), 
-    );
-  }
-}
->>>>>>> c66e5c9b66245fbfd472d8e24c523bfd32f9eff9
 
   try {
     final response = await http.post(
@@ -226,7 +205,7 @@ class _registerState extends State<register> {
             ],
           ),
         ),
-      ), 
+      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
