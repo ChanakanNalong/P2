@@ -10,6 +10,7 @@ class Login extends StatefulWidget {
   State<Login> createState() => _LoginState();
 }
 
+<<<<<<< HEAD
 class _LoginState extends State<Login> {
   final formKey = GlobalKey<FormState>();
 
@@ -56,6 +57,28 @@ class _LoginState extends State<Login> {
       print("Error: $e");
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Error: Could not connect to the server.')),
+=======
+class _loginState extends State<login> {
+  final formKey = GlobalKey<FormState>();
+
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passController = TextEditingController();
+
+  Future signIn() async {
+    String url = "http://172.16.10.226/api/flutter_login/login.php";
+    final response = await http.post(Uri.parse(url), body: {
+      'email': emailController.text,
+      'password': passController.text,
+    });
+
+    var data = json.decode(response.body);
+
+    if (data['status'] == "success") {
+      Navigator.pushNamed(context, 'home');
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Login Failed')),
+>>>>>>> c66e5c9b66245fbfd472d8e24c523bfd32f9eff9
       );
     }
   }
@@ -92,23 +115,36 @@ class _LoginState extends State<Login> {
                   SizedBox(
                     width: 350,
                     child: TextFormField(
+<<<<<<< HEAD
+=======
+                      controller: emailController,
+                      obscureText: false,
+>>>>>>> c66e5c9b66245fbfd472d8e24c523bfd32f9eff9
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'Email or Username',
                       ),
                       validator: (val) {
                         if (val!.isEmpty) {
+<<<<<<< HEAD
                           return 'Empty';
                         }
                         return null;
                       },
                       controller: emailController,
+=======
+                          return 'Please enter email or username';
+                        }
+                        return null;
+                      },
+>>>>>>> c66e5c9b66245fbfd472d8e24c523bfd32f9eff9
                     ),
                   ),
                   SizedBox(height: 20),
                   SizedBox(
                     width: 350,
                     child: TextFormField(
+                      controller: passController,
                       obscureText: true,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
@@ -116,11 +152,18 @@ class _LoginState extends State<Login> {
                       ),
                       validator: (val) {
                         if (val!.isEmpty) {
+<<<<<<< HEAD
                           return 'Empty';
                         }
                         return null;
                       },
                       controller: passwordController,
+=======
+                          return 'Please enter password';
+                        }
+                        return null;
+                      },
+>>>>>>> c66e5c9b66245fbfd472d8e24c523bfd32f9eff9
                     ),
                   ),
                   SizedBox(height: 20),
@@ -136,7 +179,11 @@ class _LoginState extends State<Login> {
                       ),
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
+<<<<<<< HEAD
                           sign_in();
+=======
+                          signIn();
+>>>>>>> c66e5c9b66245fbfd472d8e24c523bfd32f9eff9
                         }
                       },
                       child: const Text(

@@ -22,7 +22,6 @@ class _homepageState extends State<homepage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          // ignore: prefer_const_literals_to_create_immutables
           children: [
             Text(
               "Welcome To Flutter Homepage",
@@ -50,7 +49,7 @@ class _homepageState extends State<homepage> {
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white, // เปลี่ยนสีของข้อความเป็นสีขาว
+                    color: Colors.white, 
                   ),
                 ),
               ),
