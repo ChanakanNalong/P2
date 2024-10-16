@@ -27,11 +27,11 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: login(),
+      home: Login(),
       routes: {
         'register': (context) => register(),
         'home':(context) => homepage(),
-        'login':(context) => login(),
+        'login':(context) => Login(),
       },
     );
   }
