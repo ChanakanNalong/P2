@@ -17,7 +17,7 @@ class _RealTimeImageScreenState extends State<RealTimeImageScreen> {
   void initState() {
     super.initState();
     // เชื่อมต่อกับ ESP32-CAM WebSocket Server
-    _channel = IOWebSocketChannel.connect('ws://your-esp32-ip:81');
+    _channel = IOWebSocketChannel.connect('ws://192.168.135.188:81');
 
     // ฟังข้อมูลที่ถูกส่งมาจาก ESP32-CAM
     _channel?.stream.listen((data) {
