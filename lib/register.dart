@@ -10,6 +10,8 @@ import 'home.dart';
 class register extends StatefulWidget {
   const register({Key? key}) : super(key: key);
 
+  
+
   @override
   State<register> createState() => _registerState();
 }
@@ -22,7 +24,7 @@ class _registerState extends State<register> {
   TextEditingController email = TextEditingController();
 
   Future<void> sign_up() async {
-  String url = "http://127.0.0.1/api/flutter_login/register.php";
+  String url = "http://192.168.191.203/api/flutter_login/register.php";
   
   // Create a map for the request body
   final Map<String, String> requestBody = {

@@ -18,7 +18,7 @@ class _LoginState extends State<Login> {
   TextEditingController passwordController = TextEditingController();
 
   Future<void> signIn() async {
-    String url = "http://127.0.0.1/api/flutter_login/login.php";
+    String url = "http://192.168.191.203/api/flutter_login/login.php";
 
     // Create a map for the request body
     final Map<String, String> requestBody = {
@@ -64,7 +64,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF5F5F5),
+      backgroundColor: Color.fromARGB(255, 236, 229, 229),
       body: Center(
         child: Form(
           key: formKey,
@@ -80,15 +80,15 @@ class _LoginState extends State<Login> {
                   ),
                   SizedBox(height: 20),
                   Text(
-                    'To continue using this app',
+                    'To Energy_Monitoring_System',
                     style: TextStyle(fontSize: 20),
                   ),
                   Text(
                     'Please sign in first.',
                     style: TextStyle(fontSize: 20),
                   ),
-                  SizedBox(height: 30),
-                  Image.asset('assets/img/Picture.png'),
+                  // SizedBox(height: 30),
+                  // Image.asset('assets/img/Picture.png'),
                   SizedBox(height: 20),
                   SizedBox(
                     width: 350,
@@ -97,11 +97,11 @@ class _LoginState extends State<Login> {
                       obscureText: false,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
-                        labelText: 'Email or Username',
+                        labelText: 'Email',
                       ),
                       validator: (val) {
                         if (val!.isEmpty) {
-                          return 'Please enter email or username';
+                          return 'Please enter email';
                         }
                         return null;
                       },
@@ -142,11 +142,11 @@ class _LoginState extends State<Login> {
                         }
                       },
                       child: const Text(
-                        'Sign in',
+                        'Login',
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                          color: Color.fromARGB(255, 236, 229, 229),
                         ),
                       ),
                     ),
