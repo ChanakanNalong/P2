@@ -10,8 +10,6 @@ class YoloWebSocketService {
   bool isDetecting = false;
   List<Map<String, dynamic>> yoloResults = [];
 
-  YoloWebSocketService();
-
   Future<void> init(String websocketUrl) async {
     channel = WebSocketChannel.connect(Uri.parse(websocketUrl));
     vision = FlutterVision();
