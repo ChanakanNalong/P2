@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:typed_data';
+import 'package:web_socket_channel/io.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 import 'package:flutter_vision/flutter_vision.dart';
 
@@ -26,7 +27,7 @@ class _YoloWebSocketState extends State<YoloWebSocket> {
   }
 
   Future<void> init() async {
-    channel = WebSocketChannel.connect(Uri.parse('ws://172.16.10.249:81'));
+    channel = IOWebSocketChannel.connect('ws://172.16.10.249:81');
     vision = FlutterVision();
     await loadYoloModel();
     channel.stream.listen((data) {
